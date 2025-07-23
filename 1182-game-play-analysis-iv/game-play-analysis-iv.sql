@@ -5,7 +5,6 @@ SELECT
 FROM (
   SELECT 
     player_id,
-    -- m1 will be 1 if the login happened exactly 1 day after first login, else 0
     DATEDIFF(event_date, MIN(event_date) OVER (PARTITION BY player_id)) = 1 AS m1
   FROM Activity
 ) AS sub;
