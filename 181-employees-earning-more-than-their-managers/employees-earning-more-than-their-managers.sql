@@ -6,8 +6,14 @@
 -- WHERE E.salary > E1.salary
 -- GROUP BY E.name;
 
-SELECT e.name AS Employee
-FROM Employee e
-JOIN Employee m
-  ON e.managerId = m.id          -- match each employee to their manager
-WHERE e.salary > m.salary; 
+-- SELECT e.name AS Employee
+-- FROM Employee e
+-- JOIN Employee m
+--   ON e.managerId = m.id          -- match each employee to their manager
+-- WHERE e.salary > m.salary; 
+
+select e.name as Employee 
+from Employee e
+inner join Employee e1
+on e.managerId = e1.id
+where e.salary > e1.salary;
